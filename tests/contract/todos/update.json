@@ -1,0 +1,20 @@
+{
+  "name": "update-todo",
+  "method": "PUT",
+  "path": "/api/todos/1",
+  "auth": true,
+  "body": {
+    "category_id": 1,
+    "title": "Updated Contract Todo",
+    "description": "Updated",
+    "completed": true
+  },
+  "expect": {
+    "status": 200,
+    "body": {
+      "data.id": 1,
+      "data.title": "Updated Contract Todo",
+      "data.completed": true
+    }
+  }
+}

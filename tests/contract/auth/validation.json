@@ -1,0 +1,24 @@
+{
+  "name": "register-validation",
+  "method": "POST",
+  "path": "/api/register",
+  "auth": false,
+  "body": {
+    "name": "",
+    "email": "not-an-email",
+    "password": "123",
+    "password_confirmation": "456"
+  },
+  "expect": {
+    "status": 422,
+    "body": {
+      "message": "Validation failed",
+      "errors": {
+        "name": "<array>",
+        "email": "<array>",
+        "password": "<array>",
+        "password_confirmation": "<array>"
+      }
+    }
+  }
+}

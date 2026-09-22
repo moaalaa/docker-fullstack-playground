@@ -1,0 +1,22 @@
+{
+  "name": "create-todo",
+  "method": "POST",
+  "path": "/api/todos",
+  "auth": true,
+  "body": {
+    "category_id": 1,
+    "title": "Contract Todo",
+    "description": "Created by contract test",
+    "completed": false
+  },
+  "expect": {
+    "status": 201,
+    "body": {
+      "data.user_id": 1,
+      "data.category_id": 1,
+      "data.title": "Contract Todo",
+      "data.description": "Created by contract test",
+      "data.completed": false
+    }
+  }
+}

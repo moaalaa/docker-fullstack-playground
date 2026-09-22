@@ -1,0 +1,9 @@
+{
+  "name": "delete-todo",
+  "method": "DELETE",
+  "path": "/api/todos/99",
+  "auth": true,
+  "expect": {
+    "status": 204
+  }
+}

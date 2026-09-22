@@ -1,0 +1,15 @@
+{
+  "name": "list-comments",
+  "method": "GET",
+  "path": "/api/posts/1/comments",
+  "auth": true,
+  "expect": {
+    "status": 200,
+    "body": {
+      "data": "<array>",
+      "meta.current_page": 1,
+      "meta.per_page": 20,
+      "meta.total": "<number>"
+    }
+  }
+}

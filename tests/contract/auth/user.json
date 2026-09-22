@@ -1,0 +1,14 @@
+{
+  "name": "current-user",
+  "method": "GET",
+  "path": "/api/user",
+  "auth": true,
+  "expect": {
+    "status": 200,
+    "body": {
+      "message": "Success",
+      "data.id": 1,
+      "data.email": "contract-user@example.com"
+    }
+  }
+}

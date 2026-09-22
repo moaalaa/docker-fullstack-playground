@@ -1,0 +1,9 @@
+{
+  "name": "delete-category",
+  "method": "DELETE",
+  "path": "/api/categories/99",
+  "auth": true,
+  "expect": {
+    "status": 204
+  }
+}

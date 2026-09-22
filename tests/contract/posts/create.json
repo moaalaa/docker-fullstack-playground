@@ -1,0 +1,20 @@
+{
+  "name": "create-post",
+  "method": "POST",
+  "path": "/api/posts",
+  "auth": true,
+  "body": {
+    "category_id": 1,
+    "title": "Contract Post",
+    "body": "Created by contract test"
+  },
+  "expect": {
+    "status": 201,
+    "body": {
+      "data.user_id": 1,
+      "data.category_id": 1,
+      "data.title": "Contract Post",
+      "data.body": "Created by contract test"
+    }
+  }
+}

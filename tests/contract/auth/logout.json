@@ -1,0 +1,13 @@
+{
+  "name": "logout",
+  "method": "POST",
+  "path": "/api/logout",
+  "auth": true,
+  "expect": {
+    "status": 200,
+    "body": {
+      "message": "Logged out successfully",
+      "data": null
+    }
+  }
+}

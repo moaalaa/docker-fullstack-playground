@@ -1,0 +1,24 @@
+{
+  "name": "create-todo-validation",
+  "method": "POST",
+  "path": "/api/todos",
+  "auth": true,
+  "body": {
+    "category_id": 999999,
+    "title": "",
+    "description": 123,
+    "completed": "no"
+  },
+  "expect": {
+    "status": 422,
+    "body": {
+      "message": "Validation failed",
+      "errors": {
+        "category_id": "<array>",
+        "title": "<array>",
+        "description": "<array>",
+        "completed": "<array>"
+      }
+    }
+  }
+}

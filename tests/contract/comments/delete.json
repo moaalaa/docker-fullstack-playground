@@ -1,0 +1,9 @@
+{
+  "name": "delete-comment",
+  "method": "DELETE",
+  "path": "/api/comments/99",
+  "auth": true,
+  "expect": {
+    "status": 204
+  }
+}

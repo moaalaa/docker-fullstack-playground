@@ -1,0 +1,16 @@
+{
+  "name": "update-category",
+  "method": "PUT",
+  "path": "/api/categories/1",
+  "auth": true,
+  "body": {
+    "name": "Updated Contract Category"
+  },
+  "expect": {
+    "status": 200,
+    "body": {
+      "data.id": 1,
+      "data.name": "Updated Contract Category"
+    }
+  }
+}

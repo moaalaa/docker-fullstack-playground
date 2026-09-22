@@ -1,0 +1,18 @@
+{
+  "name": "login",
+  "method": "POST",
+  "path": "/api/login",
+  "auth": false,
+  "body": {
+    "email": "contract-user@example.com",
+    "password": "password123"
+  },
+  "expect": {
+    "status": 200,
+    "body": {
+      "message": "Login successful",
+      "data.user.email": "contract-user@example.com",
+      "data.token": "<non-empty>"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+# ================================
+
+# Environment & Secrets
+
+# ================================
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ================================
+
+# OS Files
+
+# ================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ================================
+
+# Editors / IDEs
+
+# ================================
+
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+*.swp
+*.swo
+*.swn
+
+# ================================
+
+# Logs
+
+# ================================
+
+*.log
+logs/
+
+# ================================
+
+# Node / JavaScript / TypeScript
+
+# ================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.npm/
+.pnpm-store/
+
+dist/
+build/
+coverage/
+
+.next/
+.nuxt/
+.output/
+.svelte-kit/
+
+.vite/
+
+# ================================
+
+# PHP / Composer / Laravel
+
+# ================================
+
+vendor/
+
+.phpunit.result.cache
+.phpunit.cache/
+
+.php-cs-fixer.cache
+.phpstan.cache/
+
+bootstrap/cache/*.php
+
+storage/*.key
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/testing/
+storage/framework/views/
+
+# ================================
+
+# Python
+
+# ================================
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+*.so
+
+.python-version
+
+.venv/
+venv/
+env/
+ENV/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ================================
+
+# Go
+
+# ================================
+
+bin/
+
+# ================================
+
+# Rust
+
+# ================================
+
+target/
+
+# ================================
+
+# .NET
+
+# ================================
+
+[Bb]in/
+[Oo]bj/
+
+.vs/
+*.user
+*.suo
+
+# ================================
+
+# Java / Spring Boot
+
+# ================================
+
+target/
+
+*.class
+*.jar
+*.war
+*.ear
+
+.gradle/
+build/
+
+# ================================
+
+# Docker
+
+# ================================
+
+docker-data/
+docker-volumes/
+
+# ================================
+
+# Databases
+
+# ================================
+
+*.sqlite
+*.sqlite3
+*.db
+
+# ================================
+
+# Temporary Files
+
+# ================================
+
+*.tmp
+*.temp
+*.bak
+*.cache
+
+.Dockerfile.swp
+
+# ================================
+
+# Test / Coverage
+
+# ================================
+
+coverage/
+.coverage/
+
+# ================================
+
+# Local playground files
+
+# ================================
+
+.local/
+tmp/
+temp/

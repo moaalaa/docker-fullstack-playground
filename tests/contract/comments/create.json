@@ -1,0 +1,17 @@
+{
+  "name": "create-comment",
+  "method": "POST",
+  "path": "/api/posts/1/comments",
+  "auth": true,
+  "body": {
+    "body": "Contract comment"
+  },
+  "expect": {
+    "status": 201,
+    "body": {
+      "data.user_id": 1,
+      "data.post_id": 1,
+      "data.body": "Contract comment"
+    }
+  }
+}

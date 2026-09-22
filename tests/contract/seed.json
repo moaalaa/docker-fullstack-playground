@@ -1,0 +1,42 @@
+{
+  "user": {
+    "id": 1,
+    "name": "Contract User",
+    "email": "contract-user@example.com",
+    "password": "password123"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "name": "Contract Category"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "category_id": 1,
+      "title": "Seed Todo",
+      "description": "Seed data",
+      "completed": false
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "category_id": 1,
+      "title": "Seed Post",
+      "body": "Seed post body"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "post_id": 1,
+      "body": "Seed comment"
+    }
+  ]
+}

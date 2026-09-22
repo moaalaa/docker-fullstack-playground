@@ -1,0 +1,9 @@
+{
+  "name": "delete-post",
+  "method": "DELETE",
+  "path": "/api/posts/99",
+  "auth": true,
+  "expect": {
+    "status": 204
+  }
+}

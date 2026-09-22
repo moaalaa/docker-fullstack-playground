@@ -1,0 +1,17 @@
+{
+  "name": "create-category",
+  "method": "POST",
+  "path": "/api/categories",
+  "auth": true,
+  "body": {
+    "name": "Contract Category"
+  },
+  "expect": {
+    "status": 201,
+    "body": {
+      "message": "Category created successfully",
+      "data.name": "Contract Category",
+      "data.user_id": 1
+    }
+  }
+}

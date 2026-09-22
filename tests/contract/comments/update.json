@@ -1,0 +1,16 @@
+{
+  "name": "update-comment",
+  "method": "PUT",
+  "path": "/api/comments/1",
+  "auth": true,
+  "body": {
+    "body": "Updated contract comment"
+  },
+  "expect": {
+    "status": 200,
+    "body": {
+      "data.id": 1,
+      "data.body": "Updated contract comment"
+    }
+  }
+}

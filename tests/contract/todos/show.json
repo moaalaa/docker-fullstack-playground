@@ -1,0 +1,14 @@
+{
+  "name": "show-todo",
+  "method": "GET",
+  "path": "/api/todos/1",
+  "auth": true,
+  "expect": {
+    "status": 200,
+    "body": {
+      "data.id": 1,
+      "data.user_id": 1,
+      "data.category_id": 1
+    }
+  }
+}

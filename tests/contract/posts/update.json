@@ -1,0 +1,19 @@
+{
+  "name": "update-post",
+  "method": "PUT",
+  "path": "/api/posts/1",
+  "auth": true,
+  "body": {
+    "category_id": 1,
+    "title": "Updated Contract Post",
+    "body": "Updated body"
+  },
+  "expect": {
+    "status": 200,
+    "body": {
+      "data.id": 1,
+      "data.title": "Updated Contract Post",
+      "data.body": "Updated body"
+    }
+  }
+}

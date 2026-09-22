@@ -1,0 +1,21 @@
+{
+  "name": "register",
+  "method": "POST",
+  "path": "/api/register",
+  "auth": false,
+  "body": {
+    "name": "Test User",
+    "email": "contract-register@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  },
+  "expect": {
+    "status": 201,
+    "body": {
+      "message": "Registered successfully",
+      "data.user.name": "Test User",
+      "data.user.email": "contract-register@example.com",
+      "data.token": "<non-empty>"
+    }
+  }
+}
