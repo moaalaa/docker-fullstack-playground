@@ -56,11 +56,12 @@ For every backend:
 7. Implement todos.
 8. Implement posts.
 9. Implement comments.
-10. Match response formats.
-11. Match validation rules.
-12. Run contract tests.
-13. Document backend-specific setup.
-14. Update the README tracker.
+10. Implement Bloom Filter (email uniqueness & resource ID existence checks).
+11. Match response formats.
+12. Match validation rules.
+13. Run contract tests.
+14. Document backend-specific setup.
+15. Update the README tracker.
 
 ## Frontend Implementation Order
 

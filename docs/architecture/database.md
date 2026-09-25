@@ -110,3 +110,7 @@ Comment
 Every user-owned resource must be scoped to the authenticated user.
 
 For example, user 1 must not be able to read or modify user 2's category, todo, post, or comment.
+
+## Performance & Lookup Optimization
+
+To minimize unnecessary database load, resource ID checks (`categories`, `todos`, `posts`, `comments`) and user email uniqueness checks during registration are fronted by a [Bloom Filter](bloom-filter.md).

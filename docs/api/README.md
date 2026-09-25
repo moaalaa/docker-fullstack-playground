@@ -103,6 +103,11 @@ Authentication is token-based for API implementations.
 | 422 | Validation failed |
 | 500 | Unexpected server error |
 
+## Bloom Filter Behavior
+
+All resource lookup endpoints (`GET /api/categories/{id}`, `GET /api/todos/{id}`, `GET /api/posts/{id}`, `GET /api/comments/{id}`) and registration email checks utilize a Bloom Filter.
+If a resource ID is determined not to exist by the Bloom Filter (`BF.EXISTS` returns `0`), the API responds immediately with `404 Not Found` (`{"message": "Resource not found."}`) without querying the primary database or cache.
+
 ## Resources
 
 - [Authentication](./authentication.md)

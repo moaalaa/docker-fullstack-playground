@@ -13,9 +13,11 @@ Frontend
     v
 Backend API
     |
+    +---- Bloom Filter (Email Uniqueness & ID Lookups)
+    |
     +---- Database
     |
-    +---- Redis
+    +---- Redis (Caching & Sessions)
 ```
 
 ## Backend Independence

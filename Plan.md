@@ -49,7 +49,29 @@ Authentication should use the same conceptual API contract across all backends.
 
 ---
 
-# 3. Todos
+# 3. Categories
+
+Each authenticated user can:
+
+- List categories
+- Create category
+- View category
+- Update category
+- Delete category
+
+Example:
+
+```http
+GET    /api/categories
+POST   /api/categories
+GET    /api/categories/{id}
+PUT    /api/categories/{id}
+DELETE /api/categories/{id}
+```
+
+---
+
+# 4. Todos
 
 Each authenticated user can:
 
@@ -71,7 +93,7 @@ DELETE /api/todos/{id}
 
 ---
 
-# 4. Posts
+# 5. Posts
 
 Each authenticated user can:
 
@@ -91,7 +113,7 @@ DELETE /api/posts/{id}
 
 ---
 
-# 5. Comments
+# 6. Comments
 
 Users can:
 
@@ -110,7 +132,16 @@ DELETE /api/comments/{id}
 
 ---
 
-# 6. Database Model
+# 7. Bloom Filter & Optimization Requirements
+
+Every API backend should integrate a Bloom Filter mechanism (e.g. using Redis / RedisBloom or an in-memory probabilistic filter) for high-performance non-existence checks:
+
+1. **Email Uniqueness Checks**: Check email availability during user registration (`bf:users:email`) before executing database queries.
+2. **Cache Penetration Protection**: Rapid lookup for resource IDs (`bf:categories:ids`, `bf:todos:ids`, `bf:posts:ids`, `bf:comments:ids`) to return `404 Not Found` immediately on non-existent IDs, skipping database and cache load.
+
+---
+
+# 8. Database Model
 
 All API implementations should use approximately the same database structure.
 
@@ -122,10 +153,18 @@ users
 ├── password
 ├── created_at
 └── updated_at
-c
+
+categories
+├── id
+├── user_id
+├── name
+├── created_at
+└── updated_at
+
 todos
 ├── id
 ├── user_id
+├── category_id
 ├── title
 ├── description
 ├── completed
@@ -135,6 +174,7 @@ todos
 posts
 ├── id
 ├── user_id
+├── category_id
 ├── title
 ├── body
 ├── created_at
@@ -153,11 +193,23 @@ Relationships:
 
 ```text
 User
+ ├── has many Categories
  ├── has many Todos
  ├── has many Posts
  └── has many Comments
 
+Category
+ ├── belongs to User
+ ├── has many Todos
+ └── has many Posts
+
+Todo
+ ├── belongs to User
+ └── belongs to Category
+
 Post
+ ├── belongs to User
+ ├── belongs to Category
  └── has many Comments
 
 Comment
@@ -167,7 +219,7 @@ Comment
 
 ---
 
-# 7. API Contract
+# 9. API Contract
 
 This is one of the most important parts of the project.
 
@@ -404,6 +456,7 @@ docker-fullstack-playground/
 │   ├── api/
 │   │   ├── README.md
 │   │   ├── authentication.md
+│   │   ├── categories.md
 │   │   ├── todos.md
 │   │   ├── posts.md
 │   │   └── comments.md
@@ -411,7 +464,8 @@ docker-fullstack-playground/
 │   ├── architecture/
 │   │   ├── overview.md
 │   │   ├── networking.md
-│   │   └── database.md
+│   │   ├── database.md
+│   │   └── bloom-filter.md
 │   │
 │   └── development.md
 │
@@ -472,6 +526,7 @@ docker-fullstack-playground/
 ├── tests/
 │   └── contract/
 │       ├── auth/
+│       ├── categories/
 │       ├── todos/
 │       ├── posts/
 │       └── comments/
@@ -729,6 +784,7 @@ Create one shared contract test suite.
 tests/
 └── contract/
     ├── auth/
+    ├── categories/
     ├── todos/
     ├── posts/
     └── comments/
@@ -793,9 +849,11 @@ Docker
 Implement:
 
 - Authentication
+- Categories
 - Todos
 - Posts
 - Comments
+- Bloom Filter
 
 Then write contract tests.
 
@@ -1291,9 +1349,11 @@ A backend is considered complete when:
 - [ ] Database connection works
 - [ ] Redis connection works
 - [ ] Authentication works
+- [ ] Categories work
 - [ ] Todos work
 - [ ] Posts work
 - [ ] Comments work
+- [ ] Bloom filter integration works
 - [ ] Validation works
 - [ ] Error format follows API contract
 - [ ] HTTP status codes follow contract
@@ -1305,6 +1365,7 @@ A frontend is complete when:
 - [ ] Docker image builds
 - [ ] Application starts
 - [ ] Login works
+- [ ] Categories work
 - [ ] Todos work
 - [ ] Posts work
 - [ ] Comments work

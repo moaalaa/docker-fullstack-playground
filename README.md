@@ -117,7 +117,8 @@ docker-fullstack-playground/
 │   ├── architecture/
 │   │   ├── overview.md
 │   │   ├── networking.md
-│   │   └── database.md
+│   │   ├── database.md
+│   │   └── bloom-filter.md
 │   │
 │   └── development.md
 │
@@ -244,6 +245,7 @@ Every API backend should implement the same features.
 | Posts          |      ⬜ |   ⬜ |      ⬜ |     ⬜ |  ⬜ |   ⬜ |   ⬜ |     ⬜ |
 | Comments       |      ⬜ |   ⬜ |      ⬜ |     ⬜ |  ⬜ |   ⬜ |   ⬜ |     ⬜ |
 | Validation     |      ⬜ |   ⬜ |      ⬜ |     ⬜ |  ⬜ |   ⬜ |   ⬜ |     ⬜ |
+| Bloom Filter   |      ⬜ |   ⬜ |      ⬜ |     ⬜ |  ⬜ |   ⬜ |   ⬜ |     ⬜ |
 | Contract Tests |      ⬜ |   ⬜ |      ⬜ |     ⬜ |  ⬜ |   ⬜ |   ⬜ |     ⬜ |
 
 ---
@@ -358,6 +360,12 @@ POST   /api/posts/{post}/comments
 PUT    /api/comments/{id}
 DELETE /api/comments/{id}
 ```
+
+## Bloom Filter & Caching
+
+Every API backend integrates a Bloom Filter for probabilistic non-existence checks:
+- **Email Uniqueness**: Fast non-existence check during registration (`bf:users:email`) prior to database query.
+- **Cache Penetration Protection**: Rapid lookup for resource IDs (`bf:categories:ids`, `bf:todos:ids`, `bf:posts:ids`, `bf:comments:ids`) to return `404 Not Found` immediately on invalid IDs.
 
 The detailed contract is documented in:
 
@@ -576,6 +584,7 @@ docs/development.md
 - [ ] Define todo contract
 - [ ] Define post contract
 - [ ] Define comment contract
+- [ ] Define Bloom Filter requirements
 - [ ] Define validation rules
 - [ ] Define HTTP status codes
 - [ ] Define success response format
@@ -611,6 +620,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] API resources/responses
 - [ ] Contract tests
@@ -676,6 +686,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -688,6 +699,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -700,6 +712,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -716,6 +729,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -728,6 +742,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -740,6 +755,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -754,6 +770,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -768,6 +785,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -782,6 +800,7 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
 - [ ] Documentation
@@ -796,8 +815,10 @@ docs/development.md
 - [ ] Todos
 - [ ] Posts
 - [ ] Comments
+- [ ] Bloom Filter
 - [ ] Validation
 - [ ] Contract tests
+- [ ] Documentation
 - [ ] Documentation
 
 ---
@@ -913,6 +934,7 @@ A 🟢 entry means:
 - [ ] `docs/architecture/overview.md`
 - [ ] `docs/architecture/networking.md`
 - [ ] `docs/architecture/database.md`
+- [ ] `docs/architecture/bloom-filter.md`
 
 ## Development
 
@@ -996,6 +1018,8 @@ Todos
 Posts
      +
 Comments
+     +
+Bloom Filter
 ```
 
 The complexity comes from implementing the same system using different technologies.
