@@ -566,14 +566,14 @@ docs/development.md
 
 ## Phase 1 — Repository
 
-- [ ] Create GitHub repository
-- [ ] Initialize Git
-- [ ] Add `README.md`
-- [ ] Add `.gitignore`
-- [ ] Add `.editorconfig`
-- [ ] Add `LICENSE`
-- [ ] Create project directories
-- [ ] Add documentation structure
+- [x] Create GitHub repository
+- [x] Initialize Git
+- [x] Add `README.md`
+- [x] Add `.gitignore`
+- [x] Add `.editorconfig`
+- [x] Add `LICENSE`
+- [x] Create project directories
+- [x] Add documentation structure
 
 ---
 
