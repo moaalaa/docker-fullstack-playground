@@ -35,7 +35,8 @@
                             @lang('main.get_started')
                         </span>
                         <span wire:loading>
-                            <span class="loading loading-spinner loading-md"></span> </span>
+                            <span class="loading loading-spinner loading-md"></span>
+                        </span>
                     </button>
                 </form>
             </div>

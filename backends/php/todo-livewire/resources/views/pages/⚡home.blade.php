@@ -15,10 +15,12 @@ new class extends Component {
     <div class="mx-auto max-w-2xl">
         <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
-                <h1 class="font-display flex items-center gap-3 text-4xl font-semibold tracking-tight">@lang('main.all_posts')</h1>
+                <h1 class="font-display flex items-center gap-3 text-4xl font-semibold tracking-tight">@lang('main.all_posts')
+                </h1>
                 <p id="feed-count" class="text-base-content/60 mt-1">3 @lang('main.posts')</p>
             </div>
-            <button class="btn btn-primary" onclick="post_modal.showModal()"><i class="fa-solid fa-plus"></i>@lang('main.new_post')</button>
+            <button class="btn btn-primary" onclick="post_modal.showModal()"><i
+                    class="fa-solid fa-plus"></i>@lang('main.new_post')</button>
         </div>
 
         <!-- ========================= POST FEED (real markup, one <article> per post) ========================= -->
@@ -43,7 +45,8 @@ new class extends Component {
                     <div class="absolute right-4 top-4 flex gap-2">
                         <button
                             class="btn btn-circle btn-sm text-base-content border-0 bg-white/90 shadow-sm hover:bg-white"
-                            aria-label="@lang('main.edit_post')" onclick="editPost('p1')"><i class="fa-solid fa-pen"></i></button>
+                            aria-label="@lang('main.edit_post')" onclick="editPost('p1')"><i
+                                class="fa-solid fa-pen"></i></button>
                         <button class="btn btn-circle btn-sm text-error border-0 bg-white/90 shadow-sm hover:bg-white"
                             aria-label="@lang('main.delete_post')"
                             onclick="confirmDeletePost('p1', 'Shipped the first version of the dashboard')"><i
@@ -131,7 +134,8 @@ new class extends Component {
                                 <span
                                     class="current-user-avatar inline-flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white">?</span>
                                 <input name="text" class="input grow rounded-full" maxlength="500" required
-                                    autocomplete="off" placeholder="@lang('main.write_comment')" aria-label="@lang('main.write_comment')" />
+                                    autocomplete="off" placeholder="@lang('main.write_comment')"
+                                    aria-label="@lang('main.write_comment')" />
                                 <button class="btn btn-primary btn-circle" aria-label="@lang('main.send_comment')"><i
                                         class="fa-solid fa-paper-plane"></i></button>
                             </form>
@@ -159,7 +163,8 @@ new class extends Component {
                     <div class="absolute right-4 top-4 flex gap-2">
                         <button
                             class="btn btn-circle btn-sm text-base-content border-0 bg-white/90 shadow-sm hover:bg-white"
-                            aria-label="@lang('main.edit_post')" onclick="editPost('p2')"><i class="fa-solid fa-pen"></i></button>
+                            aria-label="@lang('main.edit_post')" onclick="editPost('p2')"><i
+                                class="fa-solid fa-pen"></i></button>
                         <button class="btn btn-circle btn-sm text-error border-0 bg-white/90 shadow-sm hover:bg-white"
                             aria-label="@lang('main.delete_post')"
                             onclick="confirmDeletePost('p2', 'Learning Tailwind: what finally clicked')"><i
@@ -205,7 +210,8 @@ new class extends Component {
                                 <span
                                     class="current-user-avatar inline-flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white">?</span>
                                 <input name="text" class="input grow rounded-full" maxlength="500" required
-                                    autocomplete="off" placeholder="@lang('main.write_comment')" aria-label="@lang('main.write_comment')" />
+                                    autocomplete="off" placeholder="@lang('main.write_comment')"
+                                    aria-label="@lang('main.write_comment')" />
                                 <button class="btn btn-primary btn-circle" aria-label="@lang('main.send_comment')"><i
                                         class="fa-solid fa-paper-plane"></i></button>
                             </form>
@@ -233,7 +239,8 @@ new class extends Component {
                     <div class="absolute right-4 top-4 flex gap-2">
                         <button
                             class="btn btn-circle btn-sm text-base-content border-0 bg-white/90 shadow-sm hover:bg-white"
-                            aria-label="@lang('main.edit_post')" onclick="editPost('p3')"><i class="fa-solid fa-pen"></i></button>
+                            aria-label="@lang('main.edit_post')" onclick="editPost('p3')"><i
+                                class="fa-solid fa-pen"></i></button>
                         <button class="btn btn-circle btn-sm text-error border-0 bg-white/90 shadow-sm hover:bg-white"
                             aria-label="@lang('main.delete_post')" onclick="confirmDeletePost('p3', 'Sunday reset')"><i
                                 class="fa-solid fa-trash"></i></button>
@@ -273,7 +280,8 @@ new class extends Component {
                                 <span
                                     class="current-user-avatar inline-flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white">?</span>
                                 <input name="text" class="input grow rounded-full" maxlength="500" required
-                                    autocomplete="off" placeholder="@lang('main.write_comment')" aria-label="@lang('main.write_comment')" />
+                                    autocomplete="off" placeholder="@lang('main.write_comment')"
+                                    aria-label="@lang('main.write_comment')" />
                                 <button class="btn btn-primary btn-circle" aria-label="@lang('main.send_comment')"><i
                                         class="fa-solid fa-paper-plane"></i></button>
                             </form>
@@ -301,8 +309,9 @@ new class extends Component {
             <form id="post-form" class="p-6" onsubmit="return submitPost(event)">
                 <div class="flex items-start justify-between">
                     <h3 id="post-modal-title" class="font-display text-2xl font-semibold">@lang('main.write_a_post')</h3>
-                    <button type="button" class="btn btn-ghost btn-sm btn-circle -mr-2 -mt-1" aria-label="@lang('main.close')"
-                        onclick="post_modal.close()"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="button" class="btn btn-ghost btn-sm btn-circle -mr-2 -mt-1"
+                        aria-label="@lang('main.close')" onclick="post_modal.close()"><i
+                            class="fa-solid fa-xmark"></i></button>
                 </div>
 
                 <input type="hidden" name="postId" value="" />
@@ -342,84 +351,17 @@ new class extends Component {
                 </div>
 
                 <div class="mt-7 flex justify-end gap-2">
-                    <button type="button" class="btn btn-ghost" onclick="post_modal.close()">@lang('main.cancel')</button>
+                    <button type="button" class="btn btn-ghost"
+                        onclick="post_modal.close()">@lang('main.cancel')</button>
                     <button id="post-submit-btn" class="btn btn-primary"><i
                             class="fa-solid fa-paper-plane"></i>@lang('main.publish')</button>
                 </div>
             </form>
         </div>
-        <form method="dialog" class="modal-backdrop"><button aria-label="@lang('main.close')">@lang('main.close')</button></form>
+        <form method="dialog" class="modal-backdrop"><button
+                aria-label="@lang('main.close')">@lang('main.close')</button></form>
     </dialog>
 
-    <!-- New / edit category -->
-    <dialog id="category_modal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box max-w-md rounded-2xl p-0">
-            <form id="category-form" class="p-6" onsubmit="return submitCategory(event)">
-                <h3 id="category-modal-title" class="font-display text-xl font-semibold">@lang('main.new_category')</h3>
-
-                <input type="hidden" name="categoryId" value="" />
-
-                <label class="mt-5 block">
-                    <span class="mb-1.5 block text-sm font-medium">@lang('main.name')</span>
-                    <input name="name" class="input w-full" maxlength="24" required placeholder="@lang('main.category_name_placeholder')" />
-                </label>
-
-                <fieldset class="mt-5">
-                    <legend class="mb-2 text-sm font-medium">@lang('main.color')</legend>
-                    <div class="flex flex-wrap gap-3">
-                        <label class="group cursor-pointer">
-                            <input type="radio" name="color" value="#2f9e8f" class="peer sr-only" checked />
-                            <span
-                                class="peer-checked:ring-base-content grid size-9 place-items-center rounded-full ring-offset-2 transition peer-checked:ring-2"
-                                style="background:#2f9e8f"><i
-                                    class="fa-solid fa-check text-sm text-white opacity-0 group-has-[:checked]:opacity-100"></i></span>
-                        </label>
-                        <label class="group cursor-pointer">
-                            <input type="radio" name="color" value="#3e8ede" class="peer sr-only" />
-                            <span
-                                class="peer-checked:ring-base-content grid size-9 place-items-center rounded-full ring-offset-2 transition peer-checked:ring-2"
-                                style="background:#3e8ede"><i
-                                    class="fa-solid fa-check text-sm text-white opacity-0 group-has-[:checked]:opacity-100"></i></span>
-                        </label>
-                        <label class="group cursor-pointer">
-                            <input type="radio" name="color" value="#7c6bd6" class="peer sr-only" />
-                            <span
-                                class="peer-checked:ring-base-content grid size-9 place-items-center rounded-full ring-offset-2 transition peer-checked:ring-2"
-                                style="background:#7c6bd6"><i
-                                    class="fa-solid fa-check text-sm text-white opacity-0 group-has-[:checked]:opacity-100"></i></span>
-                        </label>
-                        <label class="group cursor-pointer">
-                            <input type="radio" name="color" value="#e5677d" class="peer sr-only" />
-                            <span
-                                class="peer-checked:ring-base-content grid size-9 place-items-center rounded-full ring-offset-2 transition peer-checked:ring-2"
-                                style="background:#e5677d"><i
-                                    class="fa-solid fa-check text-sm text-white opacity-0 group-has-[:checked]:opacity-100"></i></span>
-                        </label>
-                        <label class="group cursor-pointer">
-                            <input type="radio" name="color" value="#e9a23b" class="peer sr-only" />
-                            <span
-                                class="peer-checked:ring-base-content grid size-9 place-items-center rounded-full ring-offset-2 transition peer-checked:ring-2"
-                                style="background:#e9a23b"><i
-                                    class="fa-solid fa-check text-sm text-white opacity-0 group-has-[:checked]:opacity-100"></i></span>
-                        </label>
-                        <label class="group cursor-pointer">
-                            <input type="radio" name="color" value="#8baa3d" class="peer sr-only" />
-                            <span
-                                class="peer-checked:ring-base-content grid size-9 place-items-center rounded-full ring-offset-2 transition peer-checked:ring-2"
-                                style="background:#8baa3d"><i
-                                    class="fa-solid fa-check text-sm text-white opacity-0 group-has-[:checked]:opacity-100"></i></span>
-                        </label>
-                    </div>
-                </fieldset>
-
-                <div class="mt-7 flex justify-end gap-2">
-                    <button type="button" class="btn btn-ghost" onclick="category_modal.close()">@lang('main.cancel')</button>
-                    <button id="category-submit-btn" class="btn btn-primary"><i class="fa-solid fa-check"></i>@lang('main.add_category')</button>
-                </div>
-            </form>
-        </div>
-        <form method="dialog" class="modal-backdrop"><button aria-label="@lang('main.close')">@lang('main.close')</button></form>
-    </dialog>
 
     <!-- Edit comment -->
     <dialog id="comment_modal" class="modal modal-bottom sm:modal-middle">
@@ -431,12 +373,14 @@ new class extends Component {
                     <textarea name="text" class="textarea min-h-24 w-full" maxlength="500" required></textarea>
                 </label>
                 <div class="mt-7 flex justify-end gap-2">
-                    <button type="button" class="btn btn-ghost" onclick="comment_modal.close()">@lang('main.cancel')</button>
+                    <button type="button" class="btn btn-ghost"
+                        onclick="comment_modal.close()">@lang('main.cancel')</button>
                     <button class="btn btn-primary"><i class="fa-solid fa-check"></i>@lang('main.save')</button>
                 </div>
             </form>
         </div>
-        <form method="dialog" class="modal-backdrop"><button aria-label="@lang('main.close')">@lang('main.close')</button></form>
+        <form method="dialog" class="modal-backdrop"><button
+                aria-label="@lang('main.close')">@lang('main.close')</button></form>
     </dialog>
 
     <!-- Confirm delete (post / category / comment / todo — reused via confirm-title/confirm-message/pendingDelete) -->
@@ -453,13 +397,15 @@ new class extends Component {
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end gap-2">
-                    <button type="button" class="btn btn-ghost" onclick="confirm_modal.close()">@lang('main.cancel')</button>
+                    <button type="button" class="btn btn-ghost"
+                        onclick="confirm_modal.close()">@lang('main.cancel')</button>
                     <button id="confirm-btn" class="btn btn-error" onclick="runPendingDelete()"><i
                             class="fa-solid fa-trash"></i>@lang('main.delete')</button>
                 </div>
             </div>
         </div>
-        <form method="dialog" class="modal-backdrop"><button aria-label="@lang('main.close')">@lang('main.close')</button></form>
+        <form method="dialog" class="modal-backdrop"><button
+                aria-label="@lang('main.close')">@lang('main.close')</button></form>
     </dialog>
 
 </div>
