@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class AuthModal extends Component
 {
-    public ?string $name = null;
+    public ?string $email = null;
     public ?string $password = null;
     public bool $showPass = false;
 
@@ -31,13 +31,13 @@ class AuthModal extends Component
     {
         $this->showPass
             ? $this->checkPassword()
-            : $this->checkUserName();
+            : $this->checkEmail();
     }
 
-    public function checkUserName()
+    public function checkEmail()
     {
         $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:24'],
+            'email' => ['required', 'string', 'min:3', 'max:24'],
         ]);
 
         $this->showPass = true;
@@ -55,11 +55,11 @@ class AuthModal extends Component
     public function auth()
     {
         $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:24'],
+            'email' => ['required', 'string', 'min:3', 'max:24'],
             'password' => ['required', 'string', 'min:3', 'max:24'],
         ]);
 
-        $user = User::where('name', $this->name)->first();
+        $user = User::where('email', $this->email)->first();
 
         if ($user) {
             if (!Hash::check($this->password, $user->password)) {
@@ -69,10 +69,11 @@ class AuthModal extends Component
                 return;
             }
         } else {
+            $name = explode('@', $this->email)[0];
+
             $user = User::create([
-                'name' => $this->name,
-                'username' => $this->name,
-                'email' => $this->name . '@example.com',
+                'name' => $name,
+                'email' => $this->email,
                 'password' => Hash::make($this->password),
             ]);
         }

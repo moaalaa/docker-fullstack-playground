@@ -14,6 +14,7 @@ return [
     'welcome_to_daybook' => 'Welcome to Daybook',
     'welcome_subtitle' => 'What should we call you? Your name shows on the posts and comments you write.',
     'your_name' => 'Your name',
+    'your_email' => 'Your email',
     'your_password' => 'Your password',
     'get_started' => 'Get started',
     'demo_login_notice' => 'Demo login. Everything is saved only in this browser.',

@@ -1,0 +1,65 @@
+services:
+
+  todo-livewire-app:
+    build:
+      context: .
+      target: development
+    image: todo-livewire-app:latest
+    env_file: .env.dev
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    develop:
+      watch:
+        - path: ./
+          target: /var/www
+          action: sync
+        - path: Dockerfile
+          action: rebuild
+        - path: package.json
+          action: rebuild
+        - path: composer.json
+          action: rebuild
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "--max-time", "5", "http://127.0.0.1:8000/up"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    depends_on:
+      mysql_db:
+         condition: service_healthy
+      # cache:
+      #    condition: service_healthy
+
+  mysql_db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+        - MYSQL_ROOT_PASSWORD=4298
+    volumes:
+        - mysqldb-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p4298"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+      
+  # cache:
+  #   image: redis:8-alpine
+  #   restart: unless-stopped
+  #   # ports: DOn't need it i will not connect outside docker
+  #   #   - "6379:6379"
+  #   volumes:
+  #     - cache-data:/data
+  #   command: ["redis-server", "--appendonly", "yes"]
+
+volumes:
+  mysqldb-data:
+  cache-data:
+    
+      
+      
+      

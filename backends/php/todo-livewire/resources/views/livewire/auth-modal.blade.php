@@ -10,10 +10,10 @@
                     <h3 class="font-display mt-5 text-2xl font-semibold">@lang('main.welcome_to_daybook')</h3>
                     <p class="text-base-content/70 mt-2">@lang('main.welcome_subtitle')</p>
 
-                    <input wire:model="name" class="input @error('name') input-error @enderror mt-6 w-full text-center"
-                        maxlength="24" required placeholder="@lang('main.your_name')" aria-label="@lang('main.your_name')" />
+                    <input wire:model="email" class="input @error('email') input-error @enderror mt-6 w-full text-center"
+                        maxlength="24" required placeholder="@lang('main.your_email')" aria-label="@lang('main.your_email')" />
 
-                    @error('name')
+                    @error('email')
                         <p class="text-red-500">{{ $message }}</p>
                     @enderror
 

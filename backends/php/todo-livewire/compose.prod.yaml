@@ -1,0 +1,39 @@
+services:
+
+  web:
+    build:
+      context: .
+      target: production
+    image: bookmark-laravel-app:latest
+    container_name: bookmark-laravel-app-prod
+    env_file: .env.dev
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+      - "5173:5173"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "--max-time", "5", "http://127.0.0.1:8000/up"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    depends_on:
+      mysql_db:
+         condition: service_healthy
+
+  mysql_db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+        - MYSQL_ROOT_PASSWORD=4298
+    volumes:
+        - mysqldb-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p4298"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  mysqldb-data:

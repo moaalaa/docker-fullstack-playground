@@ -1,8 +1,4 @@
 @import "tailwindcss";
-@import "@fortawesome/fontawesome-free/css/all.min.css";
-@import "@fontsource-variable/bricolage-grotesque";
-@import "@fontsource-variable/figtree";
-
 @plugin "daisyui";
 
 /* Our own daisyUI theme. Change these colors and the whole app follows. */
@@ -44,17 +40,11 @@
     --noise: 0;
 }
 
-/* Extra design tokens -> become classes like bg-pine-950, border-marigold */
 @theme {
     --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
     --font-display:
         "Bricolage Grotesque Variable", "Figtree Variable", ui-sans-serif,
         sans-serif;
-
-    --color-pine-950: #0e2a27;
-    --color-pine-900: #143733;
-    --color-pine-text: #d3e6e1;
-    --color-pine-muted: #8fb0aa;
     --color-marigold: #f2b441;
 }
 
@@ -66,53 +56,8 @@
         outline: 2px solid var(--color-primary);
         outline-offset: 2px;
     }
-    .sidebar :focus-visible {
-        outline-color: var(--color-marigold);
-    }
 }
 
-/* Smooth cross-fade between the Posts and Todo pages (Chromium, Safari) */
-@view-transition {
-    navigation: auto;
-}
-.sidebar-wrap {
-    view-transition-name: sidebar;
-}
-
-/* Comment panel: slides open by animating grid rows from 0fr to 1fr */
-.comments {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease;
-}
-.comments.open {
-    grid-template-rows: 1fr;
-}
-.comments > div {
-    overflow: hidden;
-}
-
-/* The soft dotted pattern on generated post covers */
-.cover-pattern {
-    background-image: radial-gradient(
-        rgb(255 255 255 / 0.22) 1.5px,
-        transparent 1.5px
-    );
-    background-size: 22px 22px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .comments {
-        transition: none;
-    }
-    ::view-transition-group(*),
-    ::view-transition-old(*),
-    ::view-transition-new(*) {
-        animation: none !important;
-    }
-}
-
-/* Focused fields use the brand green instead of near-black */
 .input:focus,
 .input:focus-within,
 .textarea:focus,
